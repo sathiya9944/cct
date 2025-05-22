@@ -1,0 +1,375 @@
+<!-- TechTrend Innovations - E-commerce Website -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTrend Innovations</title>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f9;">
+    <!-- Header Section -->
+    <header style="background: linear-gradient(90deg, #1e3c72, #2a5298); padding: 15px 20px; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="margin: 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px;">TechTrend Innovations</h1>
+            <nav style="display: flex; gap: 20px;">
+                <a href="#home" style="color: white; text-decoration: none; font-size: 16px; transition: color 0.3s ease;">Home</a>
+                <a href="#about" style="color: white; text-decoration: none; font-size: 16px; transition: color 0.3s ease;">About Us</a>
+                <a href="#login" style="color: white; text-decoration: none; font-size: 16px; transition: color 0.3s ease;">Login</a>
+                <a href="#cart" style="color: white; text-decoration: none; font-size: 16px; transition: color 0.3s ease;" onclick="showCart()">Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="max-width: 1400px; margin: 0 auto; padding: 40px 20px;">
+        <!-- Home Section -->
+        <section id="home">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="font-size: 28px; color: #333;">Featured Products</h2>
+                <div>
+                    <select id="category-filter" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
+                        <option value="all">All Categories</option>
+                        <option value="smartphone">Smartphones</option>
+                        <option value="tablet">Tablets</option>
+                        <option value="laptop">Laptops</option>
+                        <option value="accessory">Accessories</option>
+                    </select>
+                </div>
+            </div>
+            <div id="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <!-- Product 1 -->
+<div class="product" data-category="Laptops" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <img src="https://cdn.mos.cms.futurecdn.net/FUi2wwNdyFSwShZZ7LaqWf.jpg" alt="Laptop" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="margin: 0; font-size: 18px; color: #333;">Dell XPS 13</h3>
+        <p style="color: #777; margin: 5px 0;">$1199.99</p>
+        <button onclick="addToCart('Dell XPS 13', 1199.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+    </div>
+</div>
+
+               <!-- Product 2 -->
+<div class="product" data-category="Accessories" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1703966360-61IuXUaYu1L.jpg?crop=1xw:1.00xh;center,top&resize=980:*" alt="Sony WF" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="margin: 0; font-size: 18px; color: #333;">Sony WF</h3>
+        <p style="color: #777; margin: 5px 0;">$299.99</p>
+        <button onclick="addToCart('Sony WF', 299.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+    </div>
+</div>
+
+<!-- Product 3 -->
+<div class="product" data-category="Laptops" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <img src="https://cdn.mos.cms.futurecdn.net/UbMJMVGeKd2UvjMvkZZPX6.jpg" alt="MacBook" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="margin: 0; font-size: 18px; color: #333;">MacBook</h3>
+        <p style="color: #777; margin: 5px 0;">$2999.35</p>
+        <button onclick="addToCart('MacBook', 2999.35)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+    </div>
+</div>
+
+                <!-- Product 4 -->
+                <div class="product" data-category="laptop" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1491472253230-a044054ca35f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXBwbGUlMjBsYXB0b3B8ZW58MHx8MHx8fDA%3D" alt="Laptop" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">MacBook Air</h3>
+                        <p style="color: #777; margin: 5px 0;">$999.99</p>
+                        <button onclick="addToCart('MacBook Air', 999.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product" data-category="smartphone" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://www.cnet.com/a/img/resize/bde1b8ca1b9373b61bbf9d3e113a81ac76297b51/hub/2024/09/13/0df30744-a33f-4c6e-b58c-a90d7a914089/apple-iphone-16-2815.jpg?auto=webp&height=500" alt="iPhone" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">iPhone 16</h3>
+                        <p style="color: #777; margin: 5px 0;">$899.99</p>
+                        <button onclick="addToCart('iPhone 16', 899.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product" data-category="accessory" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://m.media-amazon.com/images/I/713SsA7gftL._AC_UF1000,1000_QL80_.jpg" alt="Earbuds" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">AirPods Pro</h3>
+                        <p style="color: #777; margin: 5px 0;">$249.99</p>
+                        <button onclick="addToCart('AirPods Pro', 249.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product" data-category="smartphone" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://www.cnet.com/a/img/resize/b84fd97fe29bbe2ec4d397caf63db53bf8bea241/hub/2022/03/30/e841545d-e55c-47fc-b24a-003bf14e58c8/oneplus-10-pro-cnet-review-12.jpg?auto=webp&fit=crop&height=900&width=1200" alt="OnePlus" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">OnePlus 10 Pro</h3>
+                        <p style="color: #777; margin: 5px 0;">$649.99</p>
+                        <button onclick="addToCart('OnePlus 10 Pro', 649.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product" data-category="smartphone" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/337487292/ST/JB/TD/189620676/oneplus-nord-ce-3-5g.jpg" alt="OnePlus Nord" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">OnePlus Nord CE</h3>
+                        <p style="color: #777; margin: 5px 0;">$399.99</p>
+                        <button onclick="addToCart('OnePlus Nord CE', 399.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 9 -->
+                <div class="product" data-category="tablet" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/372325508/ZZ/TZ/XX/180833002/tab-m10-25-65cms-10-1-4gb-64gb-storm-grey-500x500.png" alt="Tablet" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Lenovo Tab M10</h3>
+                        <p style="color: #777; margin: 5px 0;">$199.99</p>
+                        <button onclick="addToCart('Lenovo Tab M10', 199.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 10 -->
+                <div class="product" data-category="tablet" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://aws-obg-image-lb-4.tcl.com/content/dam/brandsite/region/global/products/tablets/tcl-nxtpaper-14/id/1.png?t=1721272443153&w=800&webp=undefined&dpr=2.625&rendition=1068" alt="TCL Tablet" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">TCL NXTPAPER 14</h3>
+                        <p style="color: #777; margin: 5px 0;">$299.99</p>
+                        <button onclick="addToCart('TCL NXTPAPER 14', 299.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 11 -->
+                <div class="product" data-category="tablet" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://p3-ofp.static.pub/fes/cms/2023/02/22/5rhddw9d8vm9xfkexcwzvvi9lindg8985574.png" alt="Tablet" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Generic Tablet</h3>
+                        <p style="color: #777; margin: 5px 0;">$149.99</p>
+                        <button onclick="addToCart('Generic Tablet', 149.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 12 -->
+                <div class="product" data-category="tablet" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://techterms.com/img/xl/tablet_928.png" alt="Tablet" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Budget Tablet</h3>
+                        <p style="color: #777; margin: 5px 0;">$129.99</p>
+                        <button onclick="addToCart('Budget Tablet', 129.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 13 -->
+                <div class="product" data-category="accessory" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://m.media-amazon.com/images/I/618Acjb5AhL._AC_UF1000,1000_QL80_.jpg" alt="Headphones" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Wireless Headphones</h3>
+                        <p style="color: #777; margin: 5px 0;">$99.99</p>
+                        <button onclick="addToCart('Wireless Headphones', 99.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 14 -->
+                <div class="product" data-category="accessory" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://www.gonoise.com/cdn/shop/files/1_2807dbd9-3951-481c-9e9a-61af0420cd37.webp?v=1720759165" alt="Earbuds" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Noise Earbuds</h3>
+                        <p style="color: #777; margin: 5px 0;">$79.99</p>
+                        <button onclick="addToCart('Noise Earbuds', 79.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 15 -->
+                <div class="product" data-category="accessory" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Rockerz_551_ANC_Pro.347_1.jpg?v=1737546044" alt="Headphones" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">Rockerz Headphones</h3>
+                        <p style="color: #777; margin: 5px 0;">$89.99</p>
+                        <button onclick="addToCart('Rockerz Headphones', 89.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 16 -->
+                <div class="product" data-category="accessory" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <img src="https://ptron.in/cdn/shop/products/140317467-10.jpg?v=1570965828" alt="Earbuds" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 15px; text-align: center;">
+                        <h3 style="margin: 0; font-size: 18px; color: #333;">pTron Earbuds</h3>
+                        <p style="color: #777; margin: 5px 0;">$49.99</p>
+                        <button onclick="addToCart('pTron Earbuds', 49.99)" style="background: #2a5298; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" style="margin-top: 60px; display: none;">
+            <h2 style="text-align: center; font-size: 28px; color: #333; margin-bottom: 20px;">Your Cart</h2>
+            <div id="cart-items" style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <p style="text-align: center; color: #777;">Your cart is empty.</p>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 18px; color: #333;">Total: $<span id="cart-total">0.00</span></p>
+                <button onclick="clearCart()" style="background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">Clear Cart</button>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" style="margin-top: 60px;">
+            <h2 style="text-align: center; font-size: 28px; color: #333; margin-bottom: 20px;">About Us</h2>
+            <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center;">
+                <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                    TechTrend Innovations is your premier destination for the latest in technology. Established in 2025, we specialize in offering top-tier smartphones, tablets, laptops, and accessories that blend innovation with style. Our commitment to quality and customer satisfaction drives us to curate the best products from leading brands. Shop with us to experience the future of tech today!
+                </p>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" style="margin-top: 60px;">
+            <h2 style="text-align: center; font-size: 28px; color: #333; margin-bottom: 20px;">Login</h2>
+            <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="email" placeholder="Email" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+                    <input type="password" placeholder="Password" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+                    <button onclick="alert('Login functionality is for demo purposes only.')" style="background: #2a5298; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.3s ease;">Sign In</button>
+                </div>
+                <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #333;">
+                    Don't have an account? <a href="#" style="color: #2a5298; text-decoration: none;">Sign Up</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer style="background: #1e3c72; color: white; text-align: center; padding: 20px; font-size: 14px;">
+        <p style="margin: 0;">© 2025 TechTrend Innovations. All rights reserved.</p>
+        <p style="margin: 5px 0;">Contact us: support@techtrendinnovations.com</p>
+    </footer>
+
+    <!-- Inline CSS for Animations and Styling -->
+    <style>
+        /* Hover Animation for Products */
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Button Hover Animation */
+        button:hover {
+            background: #1e3c72 !important;
+        }
+
+        /* Navigation Link Hover */
+        nav a:hover {
+            color: #f0f2f5;
+        }
+
+        /* Fade-in Animation for Main Content */
+        main {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scale Animation for Images */
+        img {
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header div {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        let cart = [];
+
+        // Add to Cart
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        // Update Cart Display
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartCount.textContent = cart.length;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #777;">Your cart is empty.</p>';
+                cartTotal.textContent = '0.00';
+                return;
+            }
+
+            cartItems.innerHTML = cart.map((item, index) => `
+                <div style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})" style="background: #d32f2f; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Remove</button>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Remove from Cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Clear Cart
+        function clearCart() {
+            cart = [];
+            updateCart();
+        }
+
+        // Show Cart
+        function showCart() {
+            document.getElementById('cart').style.display = 'block';
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('login').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#cart') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    document.querySelectorAll('main > section').forEach(section => {
+                        section.style.display = section.id === targetId ? 'block' : 'none';
+                    });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Category Filter
+        document.getElementById('category-filter').addEventListener('change', function() {
+            const category = this.value;
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                product.style.display = category === 'all' || product.dataset.category === category ? 'block' : 'none';
+            });
+        });
+
+        // Initial Setup
+        document.getElementById('home').style.display = 'block';
+        document.getElementById('about').style.display = 'none';
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('cart').style.display = 'none';
+    </script>
+</body>
+</html>
